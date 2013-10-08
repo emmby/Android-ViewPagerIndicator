@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.viewpagerindicator.sample"
     android:versionCode="65"
-    android:versionName="2.4.1">
+    android:versionName="2.4.1-emmby">
 
     <uses-sdk
         android:minSdkVersion="4"

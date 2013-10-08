@@ -32,6 +32,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewConfigurationCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -570,7 +571,12 @@ public class TitlePageIndicator extends View implements PageIndicator {
                 if (mIsDragging) {
                     mLastMotionX = x;
                     if (mViewPager.isFakeDragging() || mViewPager.beginFakeDrag()) {
-                        mViewPager.fakeDragBy(deltaX);
+                        try {
+                            mViewPager.fakeDragBy(deltaX);
+                        } catch( NullPointerException e ) {
+                            // Ugly hack for https://github.com/JakeWharton/Android-ViewPagerIndicator/issues/72
+                            Log.e("ViewPagerIndicator", "Swallowing NPE for https://github.com/JakeWharton/Android-ViewPagerIndicator/issues/72");
+                        }
                     }
                 }
 

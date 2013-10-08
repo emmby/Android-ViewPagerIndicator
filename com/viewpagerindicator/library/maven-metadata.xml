@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>com.viewpagerindicator</groupId>
-  <artifactId>parent</artifactId>
+  <artifactId>library</artifactId>
   <versioning>
     <release>2.4.1-emmby</release>
     <versions>
       <version>2.4.1-emmby</version>
     </versions>
-    <lastUpdated>20131008185420</lastUpdated>
+    <lastUpdated>20131008185428</lastUpdated>
   </versioning>
 </metadata>

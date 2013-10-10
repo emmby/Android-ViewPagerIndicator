@@ -570,13 +570,13 @@ public class TitlePageIndicator extends View implements PageIndicator {
 
                 if (mIsDragging) {
                     mLastMotionX = x;
-                    if (mViewPager.isFakeDragging() || mViewPager.beginFakeDrag()) {
-                        try {
+                    try {
+                        if (mViewPager.isFakeDragging() || mViewPager.beginFakeDrag()) {
                             mViewPager.fakeDragBy(deltaX);
-                        } catch( NullPointerException e ) {
-                            // Ugly hack for https://github.com/JakeWharton/Android-ViewPagerIndicator/issues/72
-                            Log.e("ViewPagerIndicator", "Swallowing NPE for https://github.com/JakeWharton/Android-ViewPagerIndicator/issues/72");
                         }
+                    } catch( NullPointerException e ) {
+                        // Ugly hack for https://github.com/JakeWharton/Android-ViewPagerIndicator/issues/72
+                        Log.e("ViewPagerIndicator", "Swallowing NPE for https://github.com/JakeWharton/Android-ViewPagerIndicator/issues/72");
                     }
                 }
 
@@ -618,7 +618,14 @@ public class TitlePageIndicator extends View implements PageIndicator {
 
                 mIsDragging = false;
                 mActivePointerId = INVALID_POINTER;
-                if (mViewPager.isFakeDragging()) mViewPager.endFakeDrag();
+
+                try {
+                    if (mViewPager.isFakeDragging()) mViewPager.endFakeDrag();
+                } catch( NullPointerException e ) {
+                    // Ugly hack for https://github.com/JakeWharton/Android-ViewPagerIndicator/issues/72
+                    Log.e("ViewPagerIndicator", "Swallowing NPE for https://github.com/JakeWharton/Android-ViewPagerIndicator/issues/72");
+                }
+
                 break;
 
             case MotionEventCompat.ACTION_POINTER_DOWN: {

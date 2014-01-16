@@ -12,7 +12,7 @@
     <groupId>com.viewpagerindicator</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>2.4.1b-emmby</version>
+    <version>2.4.1d-emmby</version>
 
     <name>Android-ViewPagerIndicator (Parent)</name>
     <description>Android library for.</description>
@@ -70,7 +70,7 @@
         <android.platform>16</android.platform>
         <android.support.version>r7</android.support.version>
 
-        <android-maven.version>3.3.0</android-maven.version>
+        <android-maven.version>3.8.2</android-maven.version>
 
         <!-- github server corresponds to entry in ~/.m2/settings.xml -->
         <github.global.server>github</github.global.server>
